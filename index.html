@@ -69,49 +69,45 @@ function showMessage() {
     document.getElementById("surprise").innerHTML =
     "You are a very special person! 😊✨ Keep smiling and enjoy your beautiful day! 🎂🥳";
 }
-</script>
-    <div style="margin-top:30px; padding:20px; background:white; border-radius:20px;">
-
-<h2>🤖 Wait... The AI Wants To Talk 😂</h2>
-
-<p id="aiText">Tap the button first 👇😂</p>
-
-<button onclick="startAI()">🤖 Start AI</button>
-
-</div>
-
-<script>
-let aiStarted = false;
-
-function startAI() {
+    function startAI() {
 
     if (aiStarted) return;
     aiStarted = true;
 
-    const text =
-    "Heyyy... wait wait wait! ✋😂 " +
-    "Where are you going? I was told to stop you here! 😂 " +
-    "Yes yes... I know today is your birthday! 🎂🥳 " +
-    "And don't worry, I won't bore you with a long speech. 😌😂 " +
-    "I'm just here because someone gave me a small job... 👀 " +
-    "Actually... they have a few things they want to tell you. ❤️ " +
-    "Shall I tell you? 👀 " +
-    "Okay okay... before you run away... listen! 😂🤖";
+    const displayText =
+        "Heyyy... wait wait wait! ✋😂<br><br>" +
+        "Where are you going? I was told to stop you here! 😂<br><br>" +
+        "Yes yes... I know today is your birthday! 🎂🥳<br><br>" +
+        "And don't worry, I won't bore you with a long speech. 😌😂<br><br>" +
+        "I'm just here because someone gave me a small job... 👀<br><br>" +
+        "Actually... they have a few things they want to tell you. ❤️<br><br>" +
+        "Shall I tell you? 👀<br><br>" +
+        "Okay okay... before you run away... listen! 😂🤖";
 
-    document.getElementById("aiText").innerHTML =
-        text.replace(/\. /g, ".<br><br>");
+    const spokenText =
+        "Heyyy... wait wait wait! " +
+        "Where are you going? I was told to stop you here! " +
+        "Yes yes... I know today is your birthday! " +
+        "And don't worry, I won't bore you with a long speech. " +
+        "I'm just here because someone gave me a small job. " +
+        "Actually, they have a few things they want to tell you. " +
+        "Shall I tell you? " +
+        "Okay okay... before you run away... listen!";
+
+    document.getElementById("aiText").innerHTML = displayText;
 
     speechSynthesis.cancel();
 
-    const voice = new SpeechSynthesisUtterance(text);
+    const voice = new SpeechSynthesisUtterance(spokenText);
 
     voice.rate = 0.9;
-    voice.pitch = 1.1;
+    voice.pitch = 1.05;
     voice.volume = 1;
 
     speechSynthesis.speak(voice);
 
     document.querySelector("button[onclick='startAI()']").disabled = true;
-}
+    }
 </script>
+    
 </html>
