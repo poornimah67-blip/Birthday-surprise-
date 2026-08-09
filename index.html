@@ -69,9 +69,32 @@ function showMessage() {
     document.getElementById("surprise").innerHTML =
     "You are a very special person! 😊✨ Keep smiling and enjoy your beautiful day! 🎂🥳";
 }
-    function startAI() {
+
+<div style="margin-top:30px; padding:20px; background:white; border-radius:20px;">
+
+    <h2>🤖 Wait... The AI Wants To Talk 😂</h2>
+
+    <p id="aiText">Tap the button first 👇😂</p>
+
+    <button id="aiButton" onclick="startAI()">🤖 Start AI</button>
+
+</div>
+
+
+<script>
+
+function showMessage() {
+    document.getElementById("surprise").innerHTML =
+    "You are a very special person! 💛✨ Keep smiling and enjoy your beautiful day! 🎂🥳";
+}
+
+
+let aiStarted = false;
+
+function startAI() {
 
     if (aiStarted) return;
+
     aiStarted = true;
 
     const displayText =
@@ -106,8 +129,10 @@ function showMessage() {
 
     speechSynthesis.speak(voice);
 
-    document.querySelector("button[onclick='startAI()']").disabled = true;
-    }
+    document.getElementById("aiButton").disabled = true;
+}
+
 </script>
-    
+
+</body>
 </html>
