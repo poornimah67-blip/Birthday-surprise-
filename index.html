@@ -57,7 +57,7 @@
         Click Me 🎁
     </button>
 
-</body>
+
     <h2>A little somthing for U 🫶</h2>
 
 <button onclick="showMessage()">click here 🤗</button>
@@ -69,5 +69,54 @@ function showMessage() {
     document.getElementById("surprise").innerHTML =
     "You are a very special person! 😊✨ Keep smiling and enjoy your beautiful day! 🎂🥳";
 }
+</script>
+    <div style="margin-top:30px; padding:20px; background:white; border-radius:20px;">
+
+<h2>🤖 Wait... The AI Wants To Talk 😂</h2>
+
+<p id="aiText">Tap the button first 👇😂</p>
+
+<button onclick="startAI()">🤖 Start AI</button>
+
+</div>
+
+<script>
+
+function startAI() {
+
+    const messages = [
+        "Heyyy... wait wait wait! ✋😂",
+        "Where are you going? I was told to stop you here! 😂",
+        "Yes yes... I know today is your birthday! 🎂🥳",
+        "And don't worry, I won't bore you with a long speech! 😌😂",
+        "I'm just here because someone gave me a small job... 👀",
+        "Actually... they have a few things they want to tell you. ❤️",
+        "Shall I tell you? 👀",
+        "Okay okay... before you run away... listen! 😂🤖"
+    ];
+
+    let i = 0;
+
+    function speakNext() {
+
+        if (i < messages.length) {
+
+            document.getElementById("aiText").innerHTML = messages[i];
+
+            let voice = new SpeechSynthesisUtterance(messages[i]);
+            voice.rate = 1;
+            voice.pitch = 1;
+
+            speechSynthesis.speak(voice);
+
+            i++;
+
+            setTimeout(speakNext, 3500);
+        }
+    }
+
+    speakNext();
+}
+
 </script>
 </html>
