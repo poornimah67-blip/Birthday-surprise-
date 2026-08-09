@@ -82,41 +82,38 @@ function showMessage() {
 
 <script>
 
+<script>
+let aiStarted = false;
+
 function startAI() {
 
-    const messages = [
-        "Heyyy... wait wait wait! ✋😂",
-        "Where are you going? I was told to stop you here! 😂",
-        "Yes yes... I know today is your birthday! 🎂🥳",
-        "And don't worry, I won't bore you with a long speech! 😌😂",
-        "I'm just here because someone gave me a small job... 👀",
-        "Actually... they have a few things they want to tell you. ❤️",
-        "Shall I tell you? 👀",
-        "Okay okay... before you run away... listen! 😂🤖"
-    ];
+    if (aiStarted) return;
+    aiStarted = true;
 
-    let i = 0;
+    const text =
+    "Heyyy... wait wait wait! ✋😂 " +
+    "Where are you going? I was told to stop you here! 😂 " +
+    "Yes yes... I know today is your birthday! 🎂🥳 " +
+    "And don't worry, I won't bore you with a long speech. 😌😂 " +
+    "I'm just here because someone gave me a small job... 👀 " +
+    "Actually... they have a few things they want to tell you. ❤️ " +
+    "Shall I tell you? 👀 " +
+    "Okay okay... before you run away... listen! 😂🤖";
 
-    function speakNext() {
+    document.getElementById("aiText").innerHTML =
+        text.replace(/\. /g, ".<br><br>");
 
-        if (i < messages.length) {
+    speechSynthesis.cancel();
 
-            document.getElementById("aiText").innerHTML = messages[i];
+    const voice = new SpeechSynthesisUtterance(text);
 
-            let voice = new SpeechSynthesisUtterance(messages[i]);
-            voice.rate = 1;
-            voice.pitch = 1;
+    voice.rate = 0.9;
+    voice.pitch = 1.1;
+    voice.volume = 1;
 
-            speechSynthesis.speak(voice);
+    speechSynthesis.speak(voice);
 
-            i++;
-
-            setTimeout(speakNext, 3500);
-        }
-    }
-
-    speakNext();
+    document.querySelector("button[onclick='startAI()']").disabled = true;
 }
-
 </script>
 </html>
