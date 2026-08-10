@@ -97,9 +97,9 @@ function startAI() {
     aiStarted = true;
 
     const displayText =
-        "Heyyy... wait wait wait! ✋😂<br><br>" +
-       "I know today is your birthday! 🎂🥳<br><br>" +
-        "And don't worry, I won't bore you with a long speech. 😌😂<br><br>" +
+        "Heyyy... wait wait wait! 😂👀<br><br>" +
+        "I know today is your birthday! 🎂🥳<br><br>" +
+        "And don't worry, I won't bore you with a long speech. 😂<br><br>" +
         "I'm just here because someone gave me a small job... 👀<br><br>" +
         "Actually... they have a few things they want to tell you. ❤️<br><br>" +
         "Shall I tell you? 👀";
@@ -110,14 +110,11 @@ function startAI() {
         "And don't worry, I won't bore you with a long speech. " +
         "I'm just here because someone gave me a small job. " +
         "Actually, they have a few things they want to tell you. " +
-        "Shall I tell you? ";
+        "Shall I tell you?";
 
     document.getElementById("aiText").innerHTML = displayText;
-    voice.onend = function() {
-    document.getElementById("tellButton").style.display = "inline-block";
-};
 
-speechSynthesis.speak(voice);
+    speechSynthesis.cancel();
 
     const voice = new SpeechSynthesisUtterance(spokenText);
 
@@ -125,9 +122,24 @@ speechSynthesis.speak(voice);
     voice.pitch = 1.05;
     voice.volume = 1;
 
+    voice.onend = function() {
+        document.getElementById("tellButton").style.display = "inline-block";
+    };
+
     speechSynthesis.speak(voice);
 
     document.getElementById("aiButton").disabled = true;
+}
+
+
+function tellMe() {
+
+    document.getElementById("tellButton").style.display = "none";
+
+    document.getElementById("aiText").innerHTML =
+        "Okay... then listen carefully. ❤️";
+
+    // Next emotional message will come here.
 }
 
 </script>
