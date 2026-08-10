@@ -67,8 +67,11 @@
     <h2>🤖 Wait... The AI Wants To Talk 😂</h2>
 
     <p id="aiText">Someone has something to say... 👀</p>
-
+    
     <button id="aiButton" onclick="startAI()">🤖 Start AI</button>
+    <button id="tellButton" onclick="tellMe()" style="display:none;">
+    💌 Yes, tell me
+    </button>
 
 </div>
 
@@ -99,8 +102,7 @@ function startAI() {
         "And don't worry, I won't bore you with a long speech. 😌😂<br><br>" +
         "I'm just here because someone gave me a small job... 👀<br><br>" +
         "Actually... they have a few things they want to tell you. ❤️<br><br>" +
-        "Shall I tell you? 👀<br><br>" +
-        "Okay okay... before you run away... listen! 😂🤖";
+        "Shall I tell you? 👀;
 
     const spokenText =
         "Heyyy... wait wait wait! " +
@@ -108,12 +110,14 @@ function startAI() {
         "And don't worry, I won't bore you with a long speech. " +
         "I'm just here because someone gave me a small job. " +
         "Actually, they have a few things they want to tell you. " +
-        "Shall I tell you? " +
-        "Okay okay... before you run away... listen!";
+        "Shall I tell you? ";
 
     document.getElementById("aiText").innerHTML = displayText;
+    voice.onend = function() {
+    document.getElementById("tellButton").style.display = "inline-block";
+};
 
-    speechSynthesis.cancel();
+speechSynthesis.speak(voice);
 
     const voice = new SpeechSynthesisUtterance(spokenText);
 
