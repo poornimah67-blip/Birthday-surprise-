@@ -131,6 +131,8 @@ function startAI() {
     document.getElementById("aiButton").disabled = true;
 }
 function tellMe() {
+    const audio = new Audio("myvoice.mp3");
+audio.play();
 
     document.getElementById("tellButton").style.display = "none";
 
