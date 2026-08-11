@@ -92,29 +92,21 @@ body {
 
     /* Flowing emojis */
     .floating {
-        position: fixed;
-        bottom: -50px;
-        font-size: 25px;
-        animation: floatUp 8s linear infinite;
-        opacity: 0.8;
-        pointer-events: none;
+    font-size: 30px;
+    opacity: 0.85;
+    filter: none;
+    animation: floatEmoji 5s linear infinite;
+}
+
+@keyframes floatEmoji {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
     }
-
-    @keyframes floatUp {
-        0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 0;
-        }
-
-        15% {
-            opacity: 1;
-        }
-
-        100% {
-            transform: translateY(-110vh) rotate(360deg);
-            opacity: 0;
-        }
+    100% {
+        transform: translateY(-120px) rotate(360deg);
     }
+}
+
 
     .floating:nth-child(1) {
         left: 10%;
