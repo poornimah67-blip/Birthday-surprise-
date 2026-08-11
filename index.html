@@ -261,26 +261,21 @@
             speechSynthesis.speak(voice);
 
             document.getElementById("aiButton").disabled = true;
-        }
-
-
-        function tellMe() {
+        } function tellMe() {
 
     const audio = new Audio("myvoice.mp3.m4a");
-
     audio.play();
 
     document.getElementById("aiBox").style.display = "block";
 
     document.getElementById("aiText").innerHTML =
         '<h2>Okay, enough from AI... now it’s my turn. 🤭</h2>' +
-
         '<p>' +
         "Some people are special not because they try to be perfect, but because they are simply real. And honestly, that's something I genuinely appreciate about you.<br><br>" +
 
         "You've always been honest about who you are — your good side, your bad side, your strengths, and even your imperfections. Ninna bagge ninu enu hide madilla, I hope madodhu illa, and you never try to pretend to be someone else. Honestly, that kind of honesty is rare.<br><br>" +
 
-        "One thing I've always noticed about you is enandre, \"ninna sutha iro people happy aagirbeku anta neenu yavagle try maadthiya,\" and even the smallest smile or little happiness you bring to someone can mean a lot.<br><br>" +
+        "One thing I've always noticed about you is enandre, \"ninna sutha iro people happy aagirbeku anta neenu yavagli try maadthiya,\" and even the smallest smile or little happiness you bring to someone can mean a lot.<br><br>" +
 
         "I may not be able to give you everything you once hoped for, but I'm genuinely happy that I got to know the person behind everything — your honesty, kindness, caring and important thing your beautiful character.<br><br>" +
 
@@ -295,6 +290,7 @@
         "At last, I just want to say once again, Happy Birthday. ❤️" +
         '</p>';
         }
+
 
             const textBox =
                 document.getElementById("aiText");
