@@ -130,17 +130,41 @@ function startAI() {
 
     document.getElementById("aiButton").disabled = true;
 }
-
-
 function tellMe() {
 
     document.getElementById("tellButton").style.display = "none";
 
-    document.getElementById("aiText").innerHTML =
-        "Okay... then listen. ❤️";
+    const message =
+        "Some people are special not because they try to be perfect, but because they are simply real. And honestly, that's something I genuinely appreciate about you.<br><br>" +
 
-    // Next emotional message will come here.
+        "You've always been honest about who you are — your good side, your bad side, your strengths, and even your imperfections. " +
+        "Ninna bagge enu hide madalla, I hope madadhu illa, and you never try to pretend to be someone else. Honestly, that kind of honesty is rare.<br><br>" +
+
+        "One thing I've always noticed about you is enandre, \"ninna sutha iro people happy aagisbeku anta neenu yavaga try maadthiya,\" and even the smallest smile or little happiness you bring to someone can mean a lot.<br><br>" +
+
+        "I may not be able to give you everything you once hoped for, but I'm genuinely happy that I got to know the person behind everything — your honesty, kindness, caring and yup thing your beautiful character.<br><br>" +
+
+        "No matter where life takes you, I hope every dream you've been carrying in your heart slowly turns into reality. And never lose the qualities that make you you.<br><br>" +
+
+        "May this birthday bring you countless reasons to smile. Keep smiling, keep making people around you happy, and never stop being the person you are.<br><br>" +
+
+        "Even after everything, you still care, stay close, so hold on to a little hope — and that means a lot to me.<br><br>" +
+
+        "I'm really glad to have you as a friend.<br><br>" +
+
+        "At last, I just want to say once again, Happy Birthday. ❤️";
+
+    const textBox = document.getElementById("aiText");
+
+    textBox.style.opacity = "0";
+    textBox.innerHTML = message;
+
+    setTimeout(function() {
+        textBox.style.transition = "opacity 2s";
+        textBox.style.opacity = "1";
+    }, 100);
 }
+
 
 </script>
 </html>
