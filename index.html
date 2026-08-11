@@ -270,6 +270,7 @@ function startAI() {
     document.getElementById("aiButton").disabled = true;
 }
 function tellMe() {
+    document.querySelector("#aiBox h2").style.display = "none";
     const audio = new Audio("myvoice.mp3.m4a");
 audio.play();
 
