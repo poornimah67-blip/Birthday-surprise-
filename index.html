@@ -108,69 +108,34 @@ body {
 
     /* Flowing emojis */
     .floating {
-    font-size: 30px;
-    opacity: 0.85;
-    filter: none;
-    animation: floatEmoji 5s linear infinite;
+    position: fixed;
+    bottom: -60px;
+    font-size: 28px;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    animation: floatEmoji 7s linear infinite;
 }
 
 @keyframes floatEmoji {
     0% {
-        transform: translateY(100vh) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
     }
+
+    10% {
+        opacity: 0.85;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+
     100% {
-        transform: translateY(-120px) rotate(360deg);
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
     }
 }
-
-
-    .floating:nth-child(1) {
-        left: 10%;
-        animation-delay: 1s;
-    }
-
-    .floating:nth-child(2) {
-        left: 30%;
-        animation-delay: 3s;
-    }
-
-    .floating:nth-child(3) {
-        left: 50%;
-        animation-delay: 5s;
-    }
-
-    .floating:nth-child(4) {
-        left: 70%;
-        animation-delay: 2s;
-    }
-
-    .floating:nth-child(5) {
-        left: 90%;
-        animation-delay: 4s;
-    }
-        body {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-#aiBox {
-    width: 100%;
-    max-width: 600px;
-    margin: 30px auto !important;
-    padding: 25px 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-#aiText {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-    word-break: normal;
-}
-
-</style>
     </style>
 </head>
 
@@ -184,6 +149,40 @@ body {
 <div class="floating">❤️</div>
 <div class="floating">💫</div>
 <div class="floating">🎊</div>
+        .e1 {
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.e2 {
+    left: 23%;
+    animation-delay: 2s;
+}
+
+.e3 {
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.e4 {
+    left: 58%;
+    animation-delay: 1s;
+}
+
+.e5 {
+    left: 73%;
+    animation-delay: 3s;
+}
+
+.e6 {
+    left: 87%;
+    animation-delay: 5s;
+}
+
+.e7 {
+    left: 50%;
+    animation-delay: 6s;
+}
         
 
     <h1>Happy Birthday Nishanth! 🎂</h1>
