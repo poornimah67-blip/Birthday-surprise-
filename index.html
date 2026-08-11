@@ -1,100 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Birthday 🎂</title>
+    <title>Happy Birthday Nishanth!</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            text-align: center;
-            font-family: Georgia, serif;
-            background:Linear-gradient (135deg, #ffd6e7, #d6eaff); 
-            color: #5a3a40;
             margin: 0;
-            padding: 30px 10px;
             min-height: 100vh;
+            background: #ffd6e7;
+            font-family: Georgia, serif;
+            text-align: center;
+            color: #5a4a50;
             overflow-x: hidden;
         }
 
-        h1 {
-            color: #a85c6b;
-            font-size: 32px;
-            margin-top: 20px;
-        }
-
-        h2 {
-            color: #75454f;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
         .heart {
-            font-size: 50px;
-            animation: beat 1s infinite;
+            font-size: 45px;
+            margin-top: 15px;
+            animation: heartbeat 1.5s infinite;
         }
 
-        @keyframes beat {
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
             50% {
-                transform: scale(1.25);
+                transform: scale(1.15);
             }
         }
 
-        button {
-            background: #b96778;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 25px;
-            font-family: Georgia, serif;
-            font-size: 15px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(100, 60, 70, 0.2);
-            margin: 8px;
+        h1 {
+            color: #9f5965;
+            font-size: 28px;
+            margin: 10px 15px 20px;
         }
 
-        button:hover {
-            transform: scale(1.05);
+        h2 {
+            color: #5a4a50;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 18px 20px;
+        }
+
+        button {
+            background: #bd7180;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(100, 60, 70, 0.15);
+        }
+
+        button:active {
+            transform: scale(0.96);
         }
 
         #surprise {
-            margin: 20px 0;
-            font-size: 17px;
+            margin: 20px;
             font-style: italic;
-            color: #8b5963;
+            color: #8d6570;
         }
 
         #aiBox {
-            display: none;
-            width: 90%;
+            width: 92%;
             max-width: 600px;
             margin: 30px auto;
             padding: 25px 20px;
             background: rgba(255, 255, 255, 0.95);
-            border: 1px solid #efd1d8;
-            box-shadow: 0 10px 30px rgba(100, 60, 70, 0.15);
+            border: 1px solid #f0d1da;
             border-radius: 25px;
-            box-sizing: border-box;
-        }
-
-        #aiBox h2 {
-            color: #955965;
-            font-size: 22px;
+            box-shadow: 0 10px 30px rgba(100, 60, 70, 0.15);
+            display: none;
         }
 
         #aiText {
-            color: #5a4a50;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.8;
         }
 
-        /* Floating emojis */
+        #tellButton {
+            display: none;
+            margin-top: 15px;
+        }
 
+        .my-message {
+            margin-top: 20px;
+            font-size: 17px;
+            font-weight: bold;
+            color: #9f5965;
+        }
+
+        .footer-message {
+            text-align: center;
+            margin: 40px 0 25px;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            color: #9b6570;
+            opacity: 0.9;
+        }
+
+        /* Floating emojis */
         .floating {
             position: fixed;
             bottom: -60px;
-            font-size: 36px;
+            font-size: 28px;
             pointer-events: none;
             z-index: 999;
             opacity: 0;
@@ -108,11 +129,11 @@
             }
 
             10% {
-                opacity: 0.9;
+                opacity: 0.85;
             }
 
             50% {
-                opacity: 1;
+                opacity: 0.9;
             }
 
             100% {
@@ -155,17 +176,6 @@
             left: 50%;
             animation-delay: 6s;
         }
-
-        /* Final message */
-
-        .footer-message {
-            text-align: center;
-            margin: 50px 0 25px;
-            font-family: Georgia, serif;
-            font-size: 15px;
-            color: #9b6570;
-            opacity: 0.9;
-        }
     </style>
 </head>
 
@@ -173,13 +183,14 @@
 
     <div class="heart">💗</div>
 
-    <div class="floating e1">🥳</div>
+    <!-- Floating emojis -->
+    <div class="floating e1">🌸</div>
     <div class="floating e2">✨</div>
-    <div class="floating e3">♥️</div>
+    <div class="floating e3">❤️</div>
     <div class="floating e4">💫</div>
-    <div class="floating e5">🤍</div>
-    <div class="floating e6">🤍</div>
-    <div class="floating e7">🎊</div>
+    <div class="floating e5">🌼</div>
+    <div class="floating e6">💗</div>
+    <div class="floating e7">💞</div>
 
     <h1>Happy Birthday Nishanth! 🎂</h1>
 
@@ -189,7 +200,7 @@
         May your day be filled with happiness, smiles and lots of memories. ✨
     </p>
 
-    <button onclick="alert('Have the best birthday ever! 🎉❤️')">
+    <button onclick="alert('Have the best birthday ever! 🎁❤️')">
         Click Me 🎁
     </button>
 
@@ -201,9 +212,29 @@
 
     <p id="surprise"></p>
 
+    <!-- AI BOX -->
     <div id="aiBox">
-    <p id="aiText"></p>
+
+        <h2>🤖 Wait... The AI Wants To Talk 😂</h2>
+
+        <p id="aiText">
+            Someone has something to say... 👀
+        </p>
+
+        <button id="aiButton" onclick="startAI()">
+            🤖 Start AI
+        </button>
+
+        <button id="tellButton" onclick="tellMe()">
+            👀 Yes, tell me
+        </button>
+
     </div>
+
+    <div class="footer-message">
+        Made with love, just for you ❤️
+    </div>
+
 
     <script>
 
@@ -220,6 +251,7 @@
 
         let aiStarted = false;
 
+
         function startAI() {
 
             if (aiStarted) return;
@@ -227,7 +259,7 @@
             aiStarted = true;
 
             const displayText =
-                "Heyyy... wait wait! 😅👀<br><br>" +
+                "Heyyyy... wait wait! 😂👀<br><br>" +
                 "I know today is your birthday! 🎂🥳<br><br>" +
                 "And don't worry, I won't bore you with a long speech. 😂<br><br>" +
                 "I'm just here because someone gave me a small job... 👀<br><br>" +
@@ -235,12 +267,13 @@
                 "Shall I tell you? 👀";
 
             const spokenText =
-                "Heyyy... wait wait! " +
+                "Heyyyy... wait wait! " +
                 "I know today is your birthday! " +
                 "And don't worry, I won't bore you with a long speech. " +
                 "I'm just here because someone gave me a small job. " +
-                "Actually, they have a few things they want to tell you. " +
+                "Actually... they have a few things they want to tell you. " +
                 "Shall I tell you?";
+
 
             document.getElementById("aiText").innerHTML = displayText;
 
@@ -253,48 +286,64 @@
             voice.pitch = 1.05;
             voice.volume = 1;
 
+
             voice.onend = function() {
+
                 document.getElementById("tellButton").style.display =
                     "inline-block";
+
             };
+
 
             speechSynthesis.speak(voice);
 
             document.getElementById("aiButton").disabled = true;
-        } function tellMe() {
-
-    const audio = new Audio("myvoice.mp3.m4a");
-    audio.play();
-            document.getElementById("aiBox").style.display = "block";
-
-document.getElementById("aiText").innerHTML =
-    '<h2>Okay, enough from AI... now it’s my turn. 🤭</h2>' +
-    '<p>' +
-    "Some people are special not because they try to be perfect, but because they are simply real. And honestly, that's something I genuinely appreciate about you.<br><br>" +
-
-    "You've always been honest about who you are — your good side, your bad side, your strengths, and even your imperfections. Ninna bagge ninu enu hide madilla, I hope madodhu illa, and you never try to pretend to be someone else. Honestly, that kind of honesty is rare.<br><br>" +
-
-    "One thing I've always noticed about you is enandre, \"ninna sutha iro people happy aagirbeku anta neenu yavagli try maadthiya,\" and even the smallest smile or little happiness you bring to someone can mean a lot.<br><br>" +
-
-    "I may not be able to give you everything you once hoped for, but I'm genuinely happy that I got to know the person behind everything — your honesty, kindness, caring and beautiful character.<br><br>" +
-
-    "No matter where life takes you, I hope every dream you've been carrying in your heart slowly turns into reality. And never lose the qualities that make you you. 🥹<br><br>" +
-
-    "May this birthday bring you countless reasons to smile. Keep smiling, keep making people around you happy, and never stop being the person you are.<br><br>" +
-
-    "Even after everything, you still care, stay close, and hold on to a little hope — and that means a lot to me.<br><br>" +
-
-    "I'm really glad to have you as a friend. ❤️<br><br>" +
-
-    "At last, I just want to say once again, Happy Birthday. ❤️" +
-    '</p>';
-            </sricpt>
+        }
 
 
-    <div class="footer-message">
-        Made with love, just for you ❤️
-    </div>
-        
+        function tellMe() {
+
+            /* Play YOUR voice */
+            const audio = new Audio("myvoice.mp3.m4a");
+
+            audio.play();
+
+
+            /* Hide buttons */
+            document.getElementById("aiButton").style.display = "none";
+
+            document.getElementById("tellButton").style.display = "none";
+
+
+            /* Show your message */
+            document.getElementById("aiText").innerHTML =
+
+                '<h2>Okay, enough from AI... now it’s my turn. 🤭</h2>' +
+
+                '<p>' +
+
+                "Some people are special not because they try to be perfect, but because they are simply real. And honestly, that's something I genuinely appreciate about you.<br><br>" +
+
+                "You've always been honest about who you are — your good side, your bad side, your strengths, and even your imperfections. Ninna bagge ninu enu hide madalla, I hope madodhu illa, and you never try to pretend to be someone else. Honestly, that kind of honesty is rare.<br><br>" +
+
+                'One thing I’ve always noticed about you is enandre, "ninna sutha iro people happy aagirbeku anta neenu yavagle try maadthiya," and even the smallest smile or little happiness you bring to someone can mean a lot.<br><br>' +
+
+                "I may not be able to give you everything you once hoped for, but I'm genuinely happy that I got to know the person behind everything — your honesty, kindness, caring and important thing your beautiful character.<br><br>" +
+
+                "No matter where life takes you, I hope every dream you've been carrying in your heart slowly turns into reality. And never lose the qualities that make you you. 🥹<br><br>" +
+
+                "May this birthday bring you countless reasons to smile. Keep smiling, keep making people around you happy, and never stop being the person you are.<br><br>" +
+
+                "Even after everything, you still care, stay close, and hold on to a little hope — and that means a lot to me.<br><br>" +
+
+                "I'm really glad to have you as a friend. ❤️<br><br>" +
+
+                "At last, I just want to say once again, Happy Birthday. ❤️" +
+
+                '</p>';
+        }
+
+    </script>
 
 </body>
 </html>
