@@ -184,6 +184,29 @@
     color: #9b6570;
     opacity: 0.9;
             }
+        .photo-slider {
+    width: 85%;
+    max-width: 400px;
+    height: 450px;
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
     </style>
 </head>
 
@@ -237,6 +260,12 @@
             👀 Yes, tell me
         </button>
 
+    </div>
+    <div class="photo-slider">
+    <img src="photo1.jpg" class="slide active">
+    <img src="photo2.jpg" class="slide">
+    <img src="photo3.jpg" class="slide">
+    <img src="photo4.jpg" class="slide">
     </div>
 
     <script>
@@ -346,6 +375,24 @@
 
                 '</p>';
         }
+        let currentPhoto = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showNextPhoto() {
+    if (currentPhoto >= slides.length) {
+        return;
+    }
+
+    slides[currentPhoto].classList.add("active");
+
+    setTimeout(function() {
+        slides[currentPhoto].classList.remove("active");
+        currentPhoto++;
+        showNextPhoto();
+    }, 3000);
+}
+
+showNextPhoto();
 
     </script>
     <div class="footer-message">
