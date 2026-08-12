@@ -184,33 +184,6 @@
     color: #9b6570;
     opacity: 0.9;
         }
-        .photo-frame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    margin: 25px auto 15px;
-    padding: 3px;
-    background: white;
-    border: 2px solid #d9a6a6;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    box-sizing: border-box;
-}
-
-.memory-photo {
-    display: none;
-    width: auto;
-    max-width: 82vw;
-    max-height: 60vh;
-    height: auto;
-    object-fit: contain;
-}
-
-.memory-photo.show {
-    display: block;
-}
-        
     </style>
 </head>
 
@@ -265,13 +238,6 @@
         </button>
 
     </div>
-    <div class="photo-frame">
-        <img src="photo1.jpg" class="memory-photo">
-        <img src="photo2.jpg" class="memory-photo">
-        <img src="photo3.jpg" class="memory-photo">
-        <img src="photo4.jpg" class="memory-photo">
-</div>
-    
     <script>
 
         function showMessage() {
@@ -343,9 +309,7 @@
             const audio = new Audio("myvoice.mp3.m4a");
 
             audio.play();
-            audio.onended = function() {
-    startPhotoSlideshow();
-};
+        };
             
             document.querySelector("#aiBox h2").style.display = "none";
 
@@ -383,40 +347,6 @@
 
                 '</p>';
             
-        }
-        function startPhotoSlideshow() {
-
-    const slideshow = document.getElementById("photoSlideshow");
-    const photos = document.querySelectorAll(".memory-photo");
-    const dots = document.querySelectorAll(".dot");
-
-    slideshow.style.display = "block";
-
-    let current = 0;
-
-    function showPhoto() {
-
-        if (current >= photos.length) {
-            return;
-        }
-
-        photos.forEach(function(photo) {
-            photo.classList.remove("show");
-        });
-
-        dots.forEach(function(dot) {
-            dot.classList.remove("active");
-        });
-
-        photos[current].classList.add("show");
-        dots[current].classList.add("active");
-
-        current++;
-
-        setTimeout(showPhoto, 3000);
-    }
-
-    showPhoto();
         }
 
     </script>
