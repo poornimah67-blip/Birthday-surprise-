@@ -184,6 +184,45 @@
     color: #9b6570;
     opacity: 0.9;
             }
+        /* PHOTO SLIDESHOW */
+
+#photoSlideshow {
+    display: none;
+    width: 100%;
+    max-width: 650px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.memory-photo {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+}
+
+.memory-photo.show {
+    display: block;
+    animation: photoFade 1s ease-in-out;
+}
+
+@keyframes photoFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
         
     </style>
 </head>
@@ -237,6 +276,17 @@
         <button id="tellButton" onclick="tellMe()">
             👀 Yes, tell me
         </button>
+
+    </div>
+    <div id="photoSlideshow">
+
+    <img src="photo1.jpg" class="memory-photo" alt="Memory 1">
+
+    <img src="photo2.jpg" class="memory-photo" alt="Memory 2">
+
+    <img src="photo3.jpg" class="memory-photo" alt="Memory 3">
+
+    <img src="photo4.jpg" class="memory-photo" alt="Memory 4">
 
     </div>
     
@@ -311,6 +361,10 @@
             const audio = new Audio("myvoice.mp3.m4a");
 
             audio.play();
+            audio.onended = function() {
+    startPhotoSlideshow();
+};
+            
             document.querySelector("#aiBox h2").style.display = "none";
 
 
@@ -346,6 +400,29 @@
                 "At last, I just want to say once again, Happy Birthday. ❤️" +
 
                 '</p>';
+            
+        }
+        function startPhotoSlideshow() {
+    const slideshow = document.getElementById("photoSlideshow");
+    const photos = document.querySelectorAll(".memory-photo");
+
+    slideshow.style.display = "block";
+
+    let current = 0;
+
+    function showPhoto() {
+        if (current >= photos.length) return;
+
+        photos.forEach(photo => photo.classList.remove("show"));
+
+        photos[current].classList.add("show");
+
+        current++;
+
+        setTimeout(showPhoto, 3000);
+    }
+
+    showPhoto();
         }
         
 
