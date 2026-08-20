@@ -194,6 +194,9 @@
 </head>
 
 <body>
+    <audio id="bgMusic" loop>
+    <source src="background.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="heart">💞</div>
 
@@ -329,6 +332,13 @@ function tellMe() {
     "At last, I just want to say once again, Happy Birthday. ❤️" +
     '</p>';
 }
+        const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.volume = 0.12;
+
+document.addEventListener("click", function () {
+    bgMusic.play().catch(() => {});
+}, { once: true });
     </script>
     <div class="footer-message">
     Made with love, just for you ❤️
