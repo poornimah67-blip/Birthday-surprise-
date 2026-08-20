@@ -190,6 +190,56 @@
     color: #9b6570;
     opacity: 0.9;
         }
+        #photoSlideshow {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin: 35px auto 25px;
+}
+
+.photo-card {
+    width: min(82vw, 430px);
+    margin: 0 auto;
+    padding: 7px;
+    background: #ffffff;
+    border: 1px solid rgba(120, 70, 80, 0.25);
+    border-radius: 4px;
+    box-shadow: 0 8px 25px rgba(80, 40, 50, 0.18);
+    box-sizing: border-box;
+}
+
+.memory-photo {
+    display: none;
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+.memory-photo.show {
+    display: block;
+}
+
+.photo-dots {
+    margin-top: 14px;
+    text-align: center;
+}
+
+.photo-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: rgba(120, 80, 90, 0.35);
+    transition: all 0.4s ease;
+}
+
+.photo-dot.active {
+    width: 10px;
+    height: 10px;
+    background: #8f596b;
+}
     </style>
 </head>
 
@@ -332,6 +382,11 @@ function tellMe() {
     "At last, I just want to say once again, Happy Birthday. ❤️" +
     '</p>';
 }
+        emotionalVoice.onend = function() {
+    setTimeout(function() {
+        startPhotoSlideshow();
+    }, 5000);
+};
         const bgMusic = document.getElementById("bgMusic");
 
 bgMusic.volume = 0.12;
@@ -339,9 +394,62 @@ bgMusic.volume = 0.12;
 document.addEventListener("click", function () {
     bgMusic.play().catch(() => {});
 }, { once: true });
+        function startPhotoSlideshow() {
+
+    const slideshow = document.getElementById("photoSlideshow");
+    const photos = document.querySelectorAll(".memory-photo");
+    const dots = document.querySelectorAll(".photo-dot");
+
+    slideshow.style.display = "block";
+
+    let current = 0;
+
+    function showPhoto() {
+
+        if (current >= photos.length) {
+            return;
+        }
+
+        photos.forEach(function(photo) {
+            photo.classList.remove("show");
+        });
+
+        dots.forEach(function(dot) {
+            dot.classList.remove("active");
+        });
+
+        photos[current].classList.add("show");
+        dots[current].classList.add("active");
+
+        current++;
+
+        if (current < photos.length) {
+            setTimeout(showPhoto, 3000);
+        }
+    }
+
+    showPhoto();
+        }
     </script>
     <div class="footer-message">
     Made with love, just for you ❤️
+    </div>
+    <div id="photoSlideshow">
+
+    <div class="photo-card">
+        <img src="photo1.jpg" class="memory-photo">
+        <img src="photo2.jpg" class="memory-photo">
+        <img src="photo3.jpg" class="memory-photo">
+        <img src="photo4.jpg" class="memory-photo">
+    </div>
+
+    <div class="photo-dots">
+        <span class="photo-dot active"></span>
+        <span class="photo-dot"></span>
+        <span class="photo-dot"></span>
+        <span class="photo-dot"></span>
+    </div>
+
     </div>
 
 </body>
